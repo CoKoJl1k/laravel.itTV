@@ -34,5 +34,4 @@ class Task extends Model
         return $this->belongsTo(Column::class);
     }
 
-
 }
