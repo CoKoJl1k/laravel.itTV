@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Column;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -47,7 +46,7 @@ class TaskController extends Controller
         $task->column_id = $request->column_id;
         $task->save();
 
-        return redirect()->route('boards.index');
+        return redirect('/');
     }
 
     /**
@@ -88,7 +87,6 @@ class TaskController extends Controller
         $column_id = $request->input('column_id');
         $order = $request->input('order');
 
-        //dd($request);
         DB::table('tasks')->where('id', '=', $id)->update(
             ["title" => $title,
             "description" => $description,
@@ -96,7 +94,7 @@ class TaskController extends Controller
             "column_id" => $column_id,
             "order" => $order
             ]);
-        return redirect()->route('boards.index');
+        return redirect('/');
     }
 
     /**
@@ -108,6 +106,6 @@ class TaskController extends Controller
     public function destroy($id)
     {
         DB::table('tasks')->where('id', '=', $id)->delete();
-        return redirect()->route('boards.index');
+        return redirect('/');
     }
 }

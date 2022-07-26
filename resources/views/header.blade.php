@@ -18,27 +18,23 @@
 
 <div class="container">
     <div class="row">
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <!--<a class="nav-link" href="{{route('boards.index')}}"><b>Boards</b> </a>
 
-                        <a class="nav-link" href="{{route('boards.index')}}"><b>Boards</b> </a>
                         <a class="nav-link" href="{{route('boards.create')}}"><b>Boards create</b></a>
-
                         <a class="nav-link" href="{{route('columns.index')}}"><b>columns</b></a>
                         <a class="nav-link" href="{{route('columns.create')}}"><b>columns create</b></a>
-
                         <a class="nav-link" href="{{route('tasks.index')}}"><b>tasks</b></a>
                         <a class="nav-link" href="{{route('tasks.create')}}"><b>tasks create</b></a>
-
+                        -->
                     </div>
                 </div>
             </div>
         </nav>
-
     </div>
 </div>
 

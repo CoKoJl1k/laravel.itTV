@@ -21,9 +21,13 @@ Route::get('/', function () {
    // return view('welcome');
 });*/
 
-Route::get('/', [MainController::class, 'index'])->name('home');
+Route::get('/', [MainController::class, 'index']);
 
 Route::resource('boards', BoardController::class);
 Route::resource('columns', ColumnController::class);
 Route::resource('tasks', TaskController::class);
+
+
+
+
 

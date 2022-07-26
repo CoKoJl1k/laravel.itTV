@@ -33,7 +33,7 @@
 
             <div class="form-group">
                 <label for="exampleFormControlTextarea">order</label>
-                <textarea name="order"  class="form-control" value="{{$task[0]->order}}" ></textarea>
+                <input name="order"  class="form-control" value="{{$task[0]->order}}" ></input>
             </div>
             <button type="submit" class="btn btn-primary my-1">Save</button>
         </form>

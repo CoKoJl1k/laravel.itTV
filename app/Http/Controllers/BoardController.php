@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Board;
-use App\Models\Column;
-use App\Models\Posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,9 +16,7 @@ class BoardController extends Controller
     public function index()
     {
         $boards = Board::with('columns','tasks')->get();
-
         return view('board.index')->with('boards', $boards);
-
     }
 
     /**
@@ -44,8 +40,7 @@ class BoardController extends Controller
         Board::create([
             'title' => $request->title,
         ]);
-
-        return redirect()->route('boards.index');
+        return redirect('/');
     }
 
     /**
@@ -82,7 +77,7 @@ class BoardController extends Controller
     {
         $title = $request->input('title');
         DB::table('boards')->where('id', '=', $id)->update(["title" => $title]);
-        return redirect()->route('boards.index');
+        return redirect('/');
     }
 
     /**
@@ -94,7 +89,6 @@ class BoardController extends Controller
     public function destroy($id)
     {
         DB::table('boards')->where('id', '=', $id)->delete();
-
-        return redirect()->route('boards.index');
+        return redirect('/');
     }
 }

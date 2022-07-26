@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Board;
 use App\Models\Column;
-use App\Models\Comments;
-use App\Models\Posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class ColumnController extends Controller
 {
@@ -20,8 +16,6 @@ class ColumnController extends Controller
     public function index()
     {
         $columns = Column::all();
-        //$comments = Posts::find(1)->comments;
-        // dd($posts);
         return view('column.index')->with('columns', $columns);
     }
 
@@ -48,8 +42,7 @@ class ColumnController extends Controller
         //$board = Board::first();
         $column->board_id = $request->board_id;
         $column->save();
-
-        return redirect()->route('boards.index');
+        return redirect('/');
     }
 
     /**
@@ -87,8 +80,7 @@ class ColumnController extends Controller
         $title = $request->input('title');
         $board_id = $request->input('board_id');
         DB::table('columns')->where('id', '=', $id)->update(["title" => $title, "board_id" => $board_id]);
-        return redirect()->route('boards.index');
-
+        return redirect('/');
     }
 
 
@@ -101,6 +93,6 @@ class ColumnController extends Controller
     public function destroy($id)
     {
         DB::table('columns')->where('id', '=', $id)->delete();
-        return redirect()->route('boards.index');
+        return redirect('/');
     }
 }

@@ -26,7 +26,7 @@ class Task extends Model
 
     public function board()
     {
-        return $this->belongsTo(Board::class);
+        return $this->belongsTo(Board::class,'board_id');
     }
 
     public function column()
